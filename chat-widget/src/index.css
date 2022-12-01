@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+    font-family: jatin;
+    src: url("./Fonts/SpaceGrotesk-VariableFont_wght.ttf");
+   }
+   
+@font-face {
+    font-family: jatin34;
+    src: url("./Fonts/Inconsolata-VariableFont_wdth\,wght.ttf");
+   }
+   @font-face {
+    font-family: ubantu;
+    src: url("./Fonts/Ubuntu-Bold.ttf");
+   }
+   @font-face {
+    font-family: ubantu1;
+    src: url("./Fonts/Ubuntu-LightItalic.ttf");
+   }
+   @font-face {
+    font-family: ubantu2;
+    src: url("./Fonts/Ubuntu-Regular.ttf");
+   }

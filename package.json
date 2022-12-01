@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "client": "cd chat-widget && npm run server",
+    "server": "cd chat-loader && npm run start",
+    "start": "concurrently \"npm run client\" \"npm run server\""
+  },
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
