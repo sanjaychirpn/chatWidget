@@ -99,6 +99,7 @@ export default function AnonymousLogin(props) {
               await setDoc(doc(db, "inbox", adminId), {});
               // this will update doc
               await updateDoc(doc(db, "inbox", adminId), {
+                [inboxId + ".lastMessage"]: "Tap here to Start the chat",
                 [inboxId + ".userInfo"]: {
                   userId: userId,
                   displayName: userName,
