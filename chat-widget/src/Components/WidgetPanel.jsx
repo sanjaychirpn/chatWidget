@@ -83,7 +83,7 @@ export default function WidgetPanel(props) {
   return (
     <>
       <div
-        className={`shadow-2xl bottom-28 right-16 w-full h-full  duration-700`}
+        className={`shadow-2xl bottom-28 right-16 w-full h-full  duration-700 p-1`}
       >
         <Container>
           <div className="h-[10vh] flex bg-gradient-to-r from-[#0057FF] to-[#0057FF] pl-5 pt-5 rounded-b-none text-center">
@@ -132,10 +132,10 @@ export default function WidgetPanel(props) {
         </Container>
         <form
           onSubmit={sendMessage}
-          className="h-[10vh] bg-white flex items-center border-t-[0.4vh] justify-around rounded-b-2xl"
+          className="h-[10vh] bg-white flex items-center border-t-[0.4vh] justify-center rounded-b-2xl"
         >
           <input
-            className=" w-[30vw] outline-none"
+            className=" w-[81%] outline-none border-2 border-gray rounded-xl p-2 h-10"
             type="text"
             name="chat"
             placeholder="Start a Conversation"
@@ -146,9 +146,9 @@ export default function WidgetPanel(props) {
             }}
             required
           />
-          <div className="w-[30vw] rounded-full"></div>
+          <div className=" rounded-full"></div>
           <button
-            className="bg-gradient-to-r m-6 from-[#0052F1] to-[#003BAF] text-white p-2 rounded-full flex items-center justify-around text-xl"
+            className="bg-gradient-to-r m-6 from-[#0052F1] to-[#003BAF] text-white p-3 rounded-full flex items-center justify-around text-xl"
             type="submit"
           >
             <AiOutlineSend />
