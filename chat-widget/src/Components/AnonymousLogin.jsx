@@ -165,7 +165,7 @@ export default function AnonymousLogin(props) {
         <Container>
           <form
             onSubmit={loginHandler}
-            className="h-[35vh] shadow-2xl bg-[#F5F5F5] rounded-2xl absolute left-[28%] top-[32%] w-[40vw] drop-shadow-2xl  rounded-b-none py-2"
+            className="h-[35vh] shadow-2xl bg-[#F5F5F5] rounded-2xl absolute left-[20%] top-[32%] w-[60vw] drop-shadow-2xl  rounded-b-none py-2"
           >
             <div className="m-2 text-center ">
               <p className="font-bold text-lg font-[ubantu] p-5 pb-0">
@@ -175,17 +175,17 @@ export default function AnonymousLogin(props) {
                 We will reply you as soon as possible
               </p>
             </div>
-            <div className="w-full border-[0.4vh] mt-6 h-[70px] m-auto">
+            <div className="w-full border-[0.4vh] mt-5 flex justify-between m-auto">
               <input
                 name="user"
                 type="text"
-                className="form-control bg-slate-100 outline-none  block w-52 ml-4 mt-3 px-3 py-1.5 text-base font-normal text-gray-700"
+                className="form-control bg-slate-100 outline-none   block w-[80%] ml-4  px-3 py-1.5 text-base font-normal text-gray-700"
                 id="exampleFormControlInput5"
                 placeholder="Enter Your Name..."
               />
               <button
                 type="submit"
-                className=" mt-[-35px] mr-5 px-3 py-1 float-right text-blue-600 font-medium text-xs rounded-full "
+                className="  px-3 py-1  text-blue-600 font-medium text-xs rounded-full "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
