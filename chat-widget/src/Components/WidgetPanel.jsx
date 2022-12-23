@@ -82,7 +82,7 @@ export default function WidgetPanel(props) {
   return (
     <>
       <div
-        className={`shadow-2xl bottom-28 right-16 w-full h-full  duration-700 p-1 overflow-hidden`}
+        className={`shadow-2xl bottom-28 right-16 w-full h-full  duration-700 overflow-hidden`}
       >
         <Container>
           <div className="h-[10vh] flex bg-gradient-to-r from-[#0057FF] to-[#0057FF] pl-5 pt-5 rounded-b-none text-center">
