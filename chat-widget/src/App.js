@@ -35,12 +35,16 @@ function App() {
                         displayName: displayName,
                     });
 
-                    setDoc(doc(db, "Users", res.user.uid), {
-                        displayName: displayName,
-                        uid: res.user.uid,
-                        websiteURL: "http://localhost:3000",
-                        websiteId: "frontend_team",
-                    });
+                    const userData = await getDoc(doc(db, "Users", res.user.uid))
+                    if(!userData.exists()){
+                        setDoc(doc(db, "Users", res.user.uid), {
+                            displayName: displayName,
+                            uid: res.user.uid,
+                            websiteURL: "http://localhost:3000",
+                            websiteId: "frontend_team",
+                        });
+                    }
+                
                     // CREATING A ANONYMOUS USER
                     myContext.getUser(res.user.uid); // Sending info into context
 
