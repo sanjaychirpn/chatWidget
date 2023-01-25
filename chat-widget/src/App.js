@@ -59,7 +59,7 @@ function App() {
                         query(
                             collection(db, "Admins"),
                             where("websiteId", "==", websiteId),
-                            orderBy("time"),
+                            orderBy("time" , "desc"),
                             limit(1)
                         )
                     ).then((res) => {
