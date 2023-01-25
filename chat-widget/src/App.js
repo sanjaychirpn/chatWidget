@@ -95,7 +95,7 @@ function App() {
                             // const check = await getDoc(doc(db, "inbox" , adminId))
                             // // console.log(check.exists)
                             var data = false
-                            await getDocs(query(collection(db, "inbox"), where("inboxArray.inboxId", "array-contains", inboxId))).then((res) => {
+                            await getDocs(query(collection(db, "inbox"), where("inboxArray", "array-contains", inboxId))).then((res) => {
                                 res.forEach((key) => {
                                     data = true
                                 })
@@ -105,7 +105,7 @@ function App() {
                             if (check.exists()) {
                                 if (!data) {
                                     await updateDoc(doc(db, "inbox", adminId), {
-                                        inboxArray: arrayUnion({inboxId:inboxId , websiteId: websiteId}),
+                                        inboxArray: arrayUnion(inboxId , websiteId),
                                         [inboxId + ".lastMessage"]: "Tap here to Start the chat",
                                         [inboxId + ".userName"]: userName,
                                         [inboxId + ".userInfo"]: {
@@ -119,7 +119,7 @@ function App() {
                                 await setDoc(doc(db, "inbox", adminId), {});
                                 // this will update doc
                                 await updateDoc(doc(db, "inbox", adminId), {
-                                    inboxArray: arrayUnion({inboxId:inboxId , websiteId: websiteId}),
+                                    inboxArray: arrayUnion(inboxId , websiteId),
                                     [inboxId + ".lastMessage"]: "Tap here to Start the chat",
                                     [inboxId + ".userName"]: userName,
                                     [inboxId + ".userInfo"]: {
