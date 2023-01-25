@@ -59,8 +59,8 @@ function App() {
                         query(
                             collection(db, "Admins"),
                             where("websiteId", "==", websiteId),
-                            // orderBy("time"),
-                            // limit(1)
+                            orderBy("time"),
+                            limit(1)
                         )
                     ).then((res) => {
                         res.forEach((admin) => {
