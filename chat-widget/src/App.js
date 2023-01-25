@@ -12,7 +12,9 @@ import {
     collection,
     where,
     serverTimestamp,
-    arrayUnion
+    arrayUnion,
+    limit,
+    orderBy
 } from "firebase/firestore";
 import { db } from "./Firebase.js";
 import { signInAnonymously, updateProfile } from "firebase/auth";
@@ -56,7 +58,9 @@ function App() {
                     await getDocs(
                         query(
                             collection(db, "Admins"),
-                            where("websiteId", "==", websiteId)
+                            where("websiteId", "==", websiteId),
+                            // orderBy("time"),
+                            // limit(1)
                         )
                     ).then((res) => {
                         res.forEach((admin) => {
@@ -91,7 +95,7 @@ function App() {
                             // const check = await getDoc(doc(db, "inbox" , adminId))
                             // // console.log(check.exists)
                             var data = false
-                            await getDocs(query(collection(db, "inbox"), where("inboxArray", "array-contains", inboxId))).then((res) => {
+                            await getDocs(query(collection(db, "inbox"), where("inboxArray.inboxId", "array-contains", inboxId))).then((res) => {
                                 res.forEach((key) => {
                                     data = true
                                 })
@@ -101,7 +105,7 @@ function App() {
                             if (check.exists()) {
                                 if (!data) {
                                     await updateDoc(doc(db, "inbox", adminId), {
-                                        inboxArray: arrayUnion(inboxId),
+                                        inboxArray: arrayUnion({inboxId:inboxId , websiteId: websiteId}),
                                         [inboxId + ".lastMessage"]: "Tap here to Start the chat",
                                         [inboxId + ".userName"]: userName,
                                         [inboxId + ".userInfo"]: {
@@ -115,7 +119,7 @@ function App() {
                                 await setDoc(doc(db, "inbox", adminId), {});
                                 // this will update doc
                                 await updateDoc(doc(db, "inbox", adminId), {
-                                    inboxArray: arrayUnion(inboxId),
+                                    inboxArray: arrayUnion({inboxId:inboxId , websiteId: websiteId}),
                                     [inboxId + ".lastMessage"]: "Tap here to Start the chat",
                                     [inboxId + ".userName"]: userName,
                                     [inboxId + ".userInfo"]: {

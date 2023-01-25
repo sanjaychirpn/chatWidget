@@ -37,14 +37,14 @@ export default function WidgetPanel(props) {
       }),
     });
 
-    await updateDoc(doc(db, "inbox", currentUser), {
-      [inbox + ".lastMessage"]: text,
-      [inbox + ".senderId"]: currentUser,
-      [inbox + ".userInfo"]: {
-        userId: admin
-      },
-      [inbox + ".date"]: serverTimestamp(),
-    });
+    // await updateDoc(doc(db, "inbox", currentUser), {
+    //   [inbox + ".lastMessage"]: text,
+    //   [inbox + ".senderId"]: currentUser,
+    //   [inbox + ".userInfo"]: {
+    //     userId: admin
+    //   },
+    //   [inbox + ".date"]: serverTimestamp(),
+    // });
 
     await updateDoc(doc(db, "inbox", admin), {
       [inbox + ".lastMessage"]: text,
