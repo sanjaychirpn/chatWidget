@@ -23,7 +23,7 @@ function App() {
     const ChatContext = useContext(Chat);
     const params = new URLSearchParams(window.location.search)
 
-    async function loginHandler(visitorId) {
+    async function loginHandler(visitorId , websiteId) {
 
         let displayName;
         if (visitorId !== null) {
@@ -40,8 +40,7 @@ function App() {
                         setDoc(doc(db, "Users", res.user.uid), {
                             displayName: displayName,
                             uid: res.user.uid,
-                            websiteURL: "http://localhost:3000",
-                            websiteId: "frontend_team",
+                            websiteId: websiteId
                         });
                     }
                 
@@ -57,7 +56,7 @@ function App() {
                     await getDocs(
                         query(
                             collection(db, "Admins"),
-                            where("websiteId", "==", "frontend_team")
+                            where("websiteId", "==", websiteId)
                         )
                     ).then((res) => {
                         res.forEach((admin) => {
@@ -140,7 +139,7 @@ function App() {
     }
 
     useEffect(() => {
-        loginHandler(params.get("visitorId"))
+        loginHandler(params.get("visitorId") , params.get("websiteId"))
     }, [params.get("visitorId")])
     return (
         <>
